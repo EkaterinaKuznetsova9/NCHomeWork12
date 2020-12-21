@@ -59,6 +59,10 @@ public class MyComplex {
         return getReal() == real && getImag() == imag;
     }
 
+    public boolean equals(MyComplex myComplex) {
+        return myComplex != null && getReal() == myComplex.getReal() && getImag() == myComplex.getImag();
+    }
+
     @Override
     public boolean equals(Object myComplex) {
         if (myComplex instanceof MyComplex) {
