@@ -1,6 +1,6 @@
 package part2;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+import java.util.Objects;
 
 public class MyComplex {
     private double real = 0.0;
@@ -65,6 +65,11 @@ public class MyComplex {
             return getReal() == ((MyComplex) myComplex).getReal() && getImag() == ((MyComplex) myComplex).getImag();
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isReal(), getImag());
     }
 
     public double magnitude() {
