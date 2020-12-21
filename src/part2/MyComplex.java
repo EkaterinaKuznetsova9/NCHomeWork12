@@ -56,24 +56,14 @@ public class MyComplex {
     }
 
     public boolean equals(double real, double imag) {
-        return getReal() == real && getImag() == imag;
+        return Double.compare(real, getReal()) == 0
+                && Double.compare(imag, getImag()) == 0;
     }
 
-    public boolean equals(MyComplex myComplex) {
-        return myComplex != null && getReal() == myComplex.getReal() && getImag() == myComplex.getImag();
-    }
-
-    @Override
-    public boolean equals(Object myComplex) {
-        if (myComplex instanceof MyComplex) {
-            return getReal() == ((MyComplex) myComplex).getReal() && getImag() == ((MyComplex) myComplex).getImag();
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isReal(), getImag());
+    public boolean equals(MyComplex another) {
+        return another != null
+                && Double.compare(another.getReal(), getReal()) == 0
+                && Double.compare(another.getImag(), getImag()) == 0;
     }
 
     public double magnitude() {
